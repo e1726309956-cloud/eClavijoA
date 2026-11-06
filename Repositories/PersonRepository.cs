@@ -37,7 +37,7 @@ namespace eClavijoA.Repositories
                     throw new Exception("nombre requerido");
                 Persona persona = new Persona { Name = name };
                 result = _conn.Insert(persona);
-                StatusMessage = string.Format("DATOS GUARDADOS {0}", result);
+                StatusMessage = string.Format("DATOS GUARDADOS CON EXITO {0}", result);
             }
             catch (Exception ex)
             {
@@ -74,7 +74,7 @@ namespace eClavijoA.Repositories
                 if (persona != null)
                 {
                     _conn.Delete(persona);
-                    StatusMessage = $"Registro {id} eliminado";
+                    StatusMessage = $"REGISTRO {id} ELIMINADO";
                 }
                 else
                 {
