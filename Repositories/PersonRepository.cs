@@ -93,18 +93,25 @@ namespace eClavijoA.Repositories
             try
             {
                 Init();
-                var persona = _conn.Table<Persona>().FirstOrDefault(p => p.Id == id);
+
+                var persona = _conn.Table<Persona>()
+                                   .FirstOrDefault(p => p.Id == id);
+
                 if (persona != null)
                 {
                     persona.Name = name;
                     _conn.Update(persona);
-                    StatusMessage = string.Format("DATOS ACTUALIZADOS {0}", id);
+
+                    StatusMessage = $"DATOS ACTUALIZADOS {id}";
+                }
+                else
+                {
+                    StatusMessage = $"NO EXISTE EL ID {id}";
                 }
             }
             catch (Exception ex)
             {
-                throw;
-                StatusMessage = string.Format("Fallo al actualizar. {0}", ex.Message);
+                StatusMessage = $"Fallo al actualizar. {ex.Message}";
             }
         }
 

@@ -45,4 +45,29 @@ public partial class vPersona : ContentPage
         }
 
     }
+
+    private void btnActualizar_Clicked(object sender, EventArgs e)
+    {
+        if (int.TryParse(txtIdActualizar.Text, out int id))
+        {
+            App._personRepo.UpdatePerson(
+                id,
+                txtNuevoNombre.Text);
+
+            lblStatusMensaje.Text =
+                App._personRepo.StatusMessage;
+
+            listaPersonas.ItemsSource =
+                App._personRepo.GetAllPersonas();
+
+            txtIdActualizar.Text = "";
+            txtNuevoNombre.Text = "";
+        }
+        else
+        {
+            lblStatusMensaje.Text =
+                "Ingrese un ID válido";
+        }
+
+    }
 }

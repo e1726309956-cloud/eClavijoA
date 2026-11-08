@@ -20,8 +20,22 @@
     Placeholder="Ingrese el ID a eliminar"
     Keyboard="Numeric"/>
 
+        <Entry
+    x:Name="txtIdActualizar"
+    Placeholder="Ingrese el ID a actualizar"
+    Keyboard="Numeric"/>
+
+        <Entry
+    x:Name="txtNuevoNombre"
+    Placeholder="Ingrese el nuevo nombre"/>
+
+
+
+
+
         <Grid Padding="5" RowSpacing="5" ColumnSpacing="5">
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -54,10 +68,17 @@
     Clicked="btnEliminar_Clicked"
                                 Grid.Row="3"
                 Grid.Column="0"/>
-            
-            
+
+            <Button
+    x:Name="btnActualizar"
+    Text="Actualizar Persona"
+    Clicked="btnActualizar_Clicked"
+    Grid.Row="4"
+    Grid.Column="0"/>
+
+
             <CollectionView x:Name="listaPersonas"
-                            Grid.Row="4"
+                            Grid.Row="5"
                             Grid.Column="0">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
